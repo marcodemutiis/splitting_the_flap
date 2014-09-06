@@ -7,4 +7,6 @@ splitting the flap is a modular split flap display system based on Arduino. Spli
 
 All fabrication, circuit and code files are released under MIT license.
 
-For any question, please contact me at me [at] marcodemutiis.com
+For any question, please contact me at: me [at] marcodemutiis.com
+
+
