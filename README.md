@@ -9,6 +9,4 @@ All fabrication, circuit and code files are released under MIT license.
 
 For any question, please contact me at: me [at] marcodemutiis.com
 
-(pics/splittingTheFlap_800px.jpg)
-
-
+![splitting_the_flap](pics/splittingTheFlap_800px.jpg)
