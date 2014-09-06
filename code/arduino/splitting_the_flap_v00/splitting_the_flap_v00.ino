@@ -1,3 +1,13 @@
+/*
+
+  SPLITTING THE FLAP - version 00
+
+  created by Marco De Mutiis 
+  2012 - 2014
+  more info: www.marcodemutiis.com
+
+*/
+
 //////////////////////////////////////////////////////
 //stepper connection to Easy Driver 
 //red to A left
@@ -6,15 +16,11 @@
 //green to B right
 //////////////////////////////////////////////////////
 
-//enable/sleep mode: http://xavierstechno.blogspot.com.es/#%21/2012/02/easy-driver-with-arduino.html
-
-//TODO
-//alphabet+numbers char input
-
-#define DIR_PIN 2
-#define STEP_PIN 3
+//connections to the Easy Driver
+#define DIR_PIN 2      //direction pin 
+#define STEP_PIN 3     //step pin
 //#define SLEEP_PIN 9
-#define ENABLE_PIN 12
+#define ENABLE_PIN 12  //enable pin
 
 
 char inByte;
@@ -39,6 +45,7 @@ void setup() {
 
   //digitalWrite(SLEEP_PIN, LOW);
   digitalWrite(ENABLE_PIN, HIGH); //disable all pins of A397 chip
+  
   Serial.begin(9600);
 } 
 
@@ -46,9 +53,6 @@ void setup() {
 void loop(){ 
 
   currentMillis = millis();
-
-  //rotate a specific number of microsteps (8 microsteps per step)
-  //a 200 step stepper would take 1600 micro steps for one full revolution
 
   if(Serial.available() > 0){
 
@@ -136,24 +140,6 @@ void rotate(int steps, float speed){
     delayMicroseconds(usDelay); 
   } 
 } 
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ROTATE DEG
-void rotateDeg(float deg, float speed){ 
-  //rotate a specific number of degrees (negitive for reverse movement)
-  //speed is any number from .01 -> 1 with 1 being fastest - Slower is stronger
-  int dir = (deg > 0)? HIGH:LOW;
-  digitalWrite(DIR_PIN,dir); 
-
-  int steps = abs(deg)*(1/0.225);
-  float usDelay = (1/speed) * 70;
-
-  for(int i=0; i < steps; i++){ 
-    digitalWrite(STEP_PIN, HIGH); 
-    delayMicroseconds(usDelay); 
-
-    digitalWrite(STEP_PIN, LOW); 
-    delayMicroseconds(usDelay); 
-  } 
-}
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: RESET TIMER
 void resetTimer(){
   previousMillis = currentMillis;  
