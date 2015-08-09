@@ -119,8 +119,6 @@ void loop(){
   else(Serial.println("zzzz"));
 }
 
-
-
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ROTATE
 void rotate(int steps, float speed){ 
   //rotate a specific number of microsteps (8 microsteps per step) - (negitive for reverse movement)
